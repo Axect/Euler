@@ -1,8 +1,9 @@
 module EvenFibo where
 
+import Data.List
+
 main :: IO()
-main = do
-  print $ evenFib
+main = print $ evenFib
 
 fib :: Int -> Int
 fib n | n<=0 = 0
@@ -11,4 +12,4 @@ fib n | n<=0 = 0
       | otherwise = fib(n-1) + fib(n-2)
 
 evenFib :: Int
-evenFib = sum [x | x <- takeWhile (<=4000000) $ map fib [1..], x `mod` 2 == 0]
+evenFib = sum (takeWhile (<=4000000) (map fib [2,5..]))
