@@ -1,9 +1,8 @@
 module EvenlyDivisible where
 
-import Data.Numbers.Primes
-
 main :: IO()
 main = do
+  print $ wholeLCM [1..20]
 
 wholeLCM :: [Integer] -> Integer
 wholeLCM [x] = x
