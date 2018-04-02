@@ -1,5 +1,6 @@
 module Eight where
 
+main :: IO ()
 main = do
     anum <- readFile "8.txt"
     let alist = map (read . (:"")) anum :: [Integer]
