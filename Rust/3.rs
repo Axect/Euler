@@ -36,7 +36,7 @@ fn prime_factors(n: u64) -> Vec<u64> {
     .collect::<Vec<u64>>()
 }
 
-/*
+/* It's not lazy language. So, it can't axcelerate speed.
 fn factors(n: u64, ns: Vec<u64>) -> Vec<u64> {
     match (n, ns.as_slice()) {
         (1, _) => vec![],
