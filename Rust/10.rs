@@ -3,13 +3,9 @@ mod prime;
 use prime::is_prime;
 
 pub fn main() {
-    let result: u64 = Prime { num: 1 }
-    .take_while(|&x| x < 2000000)
-    .sum();
+    let result: u64 = (1..200_0000)
+        .filter(|&x| is_prime(x))
+        .sum();
 
     println!("Result: {}", result);
-}
-
-fn gen_prime() -> Prime {
-    Prime { num: 1 }
 }
