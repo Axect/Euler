@@ -1,6 +1,6 @@
 mod prime;
 
-use prime::Prime;
+use prime::is_prime;
 
 pub fn main() {
     let result: u64 = Prime { num: 1 }
