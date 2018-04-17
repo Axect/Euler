@@ -2,7 +2,7 @@ module Eight where
 
 main :: IO ()
 main = do
-    anum <- readFile "8.txt"
+    anum <- readFile "../Data/8.txt"
     let alist = map (read . (:"")) anum :: [Integer]
     print $ gp13 alist
 
