@@ -5,3 +5,4 @@ function main()
   println(result)
 end
  
+main()
