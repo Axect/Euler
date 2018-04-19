@@ -1,9 +1,12 @@
+mod prime;
+
+use prime::Prime;
+
 pub fn main() {
     // a_n = 1 + Σ(n+1) = 1 + n(n-1)/2 + n-1 = n(n+1)/2
     let result: Num = (1..)
-        .map(|x| x * (x + 1) / 2)
-        .take_while(|x| x.calc_divisors() < 600)
-        .filter(|x| x.calc_divisors() > 500)
+        .map(|x| x*(x+1)/2)
+        .skip_while(|x| x.calc_divisors() < 500)
         .take(1)
         .sum();
 
@@ -18,14 +21,22 @@ trait Divisors {
 
 impl Divisors for Num {
     fn calc_divisors(&self) -> u64 {
-        let l = self.clone() / 2;
-        let mut count: u64 = 0;
-        
-        for _i in 1..(l+1) {
-            if self % l == 0 {
+        let mut a = self.clone();
+        let mut div: u64 = 1;
+
+        for p in gen_prime().take_while(|p| p < self) {
+            let mut count: u64 = 0;
+            while a%p == 0 && a >= p {
+                a = a / p;
                 count += 1;
             }
+            div *= (count + 1);
+            if a < p { break; }
         }
-        count
+        div
     }
+}
+
+fn gen_prime() -> Prime {
+    Prime { num: 1 }
 }
