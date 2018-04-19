@@ -1,6 +1,7 @@
+#![feature(exclusive_range_pattern)]
+
 use std::fs::File;
 use std::io::prelude::*;
-use std::ops::Deref;
 
 pub fn main() {
     let mut f = File::open("data/13.txt").expect("There is no file here");
@@ -9,24 +10,62 @@ pub fn main() {
         .expect("Something went wrong reading the file");
     let result = texts.split('\n')
         .filter(|&x| x != "")
-        .collect::<Vec<&str>>();
+        .map(
+            |x| x.chars()
+             .map(|t| t.to_digit(10u32).unwrap() as u64).collect::<Row>()
+            ).collect::<Matrix>();
     
-    let ls = large_sum(result);
-
+    let ls = result.split_sum().merge_sum();
     println!("{:?}", ls);
 }
 
-fn large_sum(str_array: Vec<&str>) -> Vec<u64> {
-    let mut mat = str_array.clone();
-    let mut times = str_array[0].len();
-    let mut sums: Vec<u64> = Vec::new();
+type Row = Vec<u64>;
+type Matrix = Vec<Vec<u64>>;
 
-    if times > 18 {
-        let s: u64 = str_array().into_iter()
-            .map(|x| x.to_string().chars().take(18).into_iter().collect::<String>()
-                 .parse::<u64>().unwrap())
-            .sum();
-        sums.push(s);
+trait LargeRow {
+    fn merge_sum(&self) -> String;
+}
+
+trait LargeArray {
+    fn split_sum(&self) -> Row;
+}
+
+impl LargeArray for Matrix {
+    fn split_sum(&self) -> Row {
+        let mut b: Row = Vec::new();
+        for i in 0..self[0].len() {
+            let mut s = 0;
+            for j in 0..self.len() {
+                s += self[j][i];
+            }
+            b.push(s);
+        }
+        b
     }
-    sums
+}
+
+impl LargeRow for Row {
+    fn merge_sum(&self) -> String {
+        let mut a = self.iter().rev()
+            .map(|x| *x as u64).collect::<Vec<u64>>();
+        for i in 0..self.len() {
+            let val = a[i];
+            match &val {
+                0 .. 9 => (),
+                10 .. 99 => if i <= self.len() - 2 { 
+                    a[i+1] += val / 10;
+                    a[i] -= (val / 10) * 10;
+                },
+                100 .. 900 => if i <= self.len() - 2 { 
+                    a[i+1] += val / 10;
+                    a[i] -= (val / 100) * 100 + ((val - (val/100)*100) / 10) * 10;
+                },
+                _ => ()
+            }
+        }
+        a.into_iter().rev()
+            .map(|x| x.to_string())
+            .collect::<Vec<String>>()
+            .concat()
+    }
 }
