@@ -5,7 +5,7 @@ use prime::Prime;
 pub fn main() {
     // a_n = 1 + Σ(n+1) = 1 + n(n-1)/2 + n-1 = n(n+1)/2
     let result: Num = (1..)
-        .map(|x| x * (x + 1) / 2)
+        .map(|x| x*(x+1)/2)
         .skip_while(|x| x.calc_divisors() < 500)
         .take(1)
         .sum();
@@ -26,14 +26,12 @@ impl Divisors for Num {
 
         for p in gen_prime().take_while(|p| p < self) {
             let mut count: u64 = 0;
-            while a % p == 0 && a >= p {
+            while a%p == 0 && a >= p {
                 a = a / p;
                 count += 1;
             }
             div *= (count + 1);
-            if a < p {
-                break;
-            }
+            if a < p { break; }
         }
         div
     }

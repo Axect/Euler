@@ -33,3 +33,4 @@ pub fn prime_factors(n: u64) -> Vec<u64> {
         .filter(|&p| n % p == 0)
         .collect::<Vec<u64>>()
 }
+
