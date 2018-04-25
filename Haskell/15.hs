@@ -1,5 +1,3 @@
-module Lattice where
-
 main = do
   print $ paths 20 20
 
