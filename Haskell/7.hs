@@ -1,5 +1,3 @@
-module Primes where
-
 import Data.Numbers.Primes
 
 main :: IO()
