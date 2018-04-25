@@ -5,9 +5,8 @@ main = do
   dat <- readFile "../Data/11.txt"
   let strArray = map (splitOn " ") $ filter (/= "") $ splitOn "\n" dat
       matArray = map (map read) strArray :: [[Integer]]
-  print $ hProdMat matArray
-  print $ vProdMat matArray
-  print $ dProdMat matArray
+  print $ maximum
+    [hProdMat matArray, vProdMat matArray, dProdMat matArray, rProdMat matArray]
 
 type Vector = [Integer]
 type Matrix = [[Integer]]
@@ -26,6 +25,9 @@ vProdMat = maximum . (map hProd) . transpose
 
 dProdMat :: Matrix -> Integer
 dProdMat = maximum . (map hProd) . (map diag) . cyclics
+
+rProdMat :: Matrix -> Integer
+rProdMat = dProdMat . (map reverse)
 
 -- Matrix Code
 transpose :: Matrix -> Matrix
