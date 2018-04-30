@@ -1,3 +1,6 @@
+main = do
+  print $ primeFactors 600851475143
+
 primes = 2 : (filter isPrime [3 ..])
 isPrime n = all (\p -> n `mod` p > 0) (takeWhile (\p -> p * p <= n) primes)
 
