@@ -1,0 +1,15 @@
+{"compile":[
+["/home/kavis/Documents/Project/Euler/Nim/nimcache/p002.c", "gcc -c  -w -O3 -fno-strict-aliasing  -I/home/kavis/.choosenim/toolchains/nim-0.18.0/lib -o /home/kavis/Documents/Project/Euler/Nim/nimcache/p002.o /home/kavis/Documents/Project/Euler/Nim/nimcache/p002.c"],
+["/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_system.c", "gcc -c  -w -O3 -fno-strict-aliasing  -I/home/kavis/.choosenim/toolchains/nim-0.18.0/lib -o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_system.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_system.c"],
+["/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_sequtils.c", "gcc -c  -w -O3 -fno-strict-aliasing  -I/home/kavis/.choosenim/toolchains/nim-0.18.0/lib -o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_sequtils.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_sequtils.c"]
+],
+"link":[
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/p002.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_system.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_sequtils.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_math.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_future.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_macros.o"
+],
+"linkcmd": "gcc   -o /home/kavis/Documents/Project/Euler/Nim/bin/p002  /home/kavis/Documents/Project/Euler/Nim/nimcache/p002.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_system.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_sequtils.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_math.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_future.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_macros.o  -lm   -ldl"
+}

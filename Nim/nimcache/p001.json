@@ -1,0 +1,13 @@
+{"compile":[
+]
+],
+"link":[
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/p001.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_system.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_future.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_math.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_sequtils.o",
+"/home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_macros.o"
+],
+"linkcmd": "gcc   -o /home/kavis/Documents/Project/Euler/Nim/bin/p001  /home/kavis/Documents/Project/Euler/Nim/nimcache/p001.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_system.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_future.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_math.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_sequtils.o /home/kavis/Documents/Project/Euler/Nim/nimcache/stdlib_macros.o  -lm   -ldl"
+}
