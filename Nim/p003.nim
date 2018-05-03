@@ -1,12 +1,12 @@
 import sequtils, math, future
 
-proc isPrime(n: int64): bool =
-  if n == 1:
-    return false
-  
-  return (toSeq 2..(n-1)).all(p => n mod p != 0)
+proc isPrime*(n: int64): bool =
+  case n
+  of 1: return false
+  of 2: return true
+  else: return (toSeq 2..int(sqrt(n.float))).all(p => n mod p != 0)
 
-proc primeFactors(n: int64): seq[int64] =
+proc primeFactors*(n: int64): seq[int64] =
   var fac: seq[int64] = @[]
   var m = n
   var p = 2

@@ -9,8 +9,14 @@ let num = parseInt(paramStr(1))
 let repeat = parseInt(paramStr(2))
 
 let rust = &"./Rust/bin/Euler{num}"
-let nim = &"./Nim/bin/p00{num}"
 let haskell = &"./Haskell/bin/{num}"
+var nim = &"./Nim/bin/p00{num}"
+
+case num
+of 1..9: nim = &"./Nim/bin/p00{num}"
+of 10..100: nim = &"./Nim/bin/p0{num}"
+else: nim = &"./Nim/bin/p{num}"
+
 
 proc measureTime(cmd: string): float =
   let output = splitLines(cmd)
