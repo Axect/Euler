@@ -1,3 +1,4 @@
+Language,Time (sec)
 Haskell,0.002
-Nim,0.0374
-Rust,0.3158
+Nim,0.0372
+Rust,0.3156

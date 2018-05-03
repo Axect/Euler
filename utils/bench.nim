@@ -1,10 +1,9 @@
-import os, times, osproc, strutils, strformat, algorithm
+import os, times, osproc, strutils, strformat, algorithm, sequtils
 import csvtools
 
 type BenchMark = object
   lang: string
-  time: float
-
+  time: string
 
 let num = parseInt(paramStr(1))
 let repeat = parseInt(paramStr(2))
@@ -34,9 +33,11 @@ proc main =
   nim_time /= repeat.float
   haskell_time /= repeat.float
 
-  let rust_bench = BenchMark(lang: "Rust", time: rust_time)
-  let nim_bench = BenchMark(lang: "Nim", time: nim_time)
-  let haskell_bench = BenchMark(lang: "Haskell", time: haskell_time)
+  let bench_head = BenchMark(lang: "Language", time: "Time (sec)")
+
+  let rust_bench = BenchMark(lang: "Rust", time: $rust_time)
+  let nim_bench = BenchMark(lang: "Nim", time: $nim_time)
+  let haskell_bench = BenchMark(lang: "Haskell", time: $haskell_time)
 
   var bench_result: seq[BenchMark] = @[rust_bench, nim_bench, haskell_bench]
   bench_result.sort do (x, y: BenchMark) -> int:
@@ -44,10 +45,12 @@ proc main =
     if result == 0:
       result = cmp(x.lang, y.lang)
 
+  bench_result = concat(@[bench_head], bench_result)
+
   echo &"Rust:    {rust_time}s"
   echo &"Nim:     {nim_time}s"
   echo &"Haskell: {haskell_time}s"
-  
+
   case num
   of 1..9: bench_result.writeToCsv(&"Bench/euler00{num}.csv")
   of 10..99: bench_result.writeToCsv(&"Bench/euler0{num}.csv")
