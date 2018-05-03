@@ -1,3 +1,5 @@
+using DataFrames
+
 strnum, strtimes = ARGS
 num = parse(Int64, strnum)
 times = parse(Int64, strtimes)
@@ -24,12 +26,12 @@ println("Rust: ", rust_time)
 println("Nim: ", nim_time)
 println("Haskell: ", haskell_time)
 
-result = ["Rust: $(rust_time)sec", "Nim: $(nim_time)sec", "Haskell: $(haskell_time)sec"]
+result = DataFrame(Rust = rust_time, Nim = nim_time, Haskell = haskell_time)
 
 if num < 10
-  writecsv("Bench/euler00$(num).csv", result)
+  writetable("Bench/euler00$(num).csv", result)
 elseif num < 100
-  writecsv("Bench/euler0$(num).csv", result)
+  writetable("Bench/euler0$(num).csv", result)
 else
-  writecsv("Bench/euler$(num).csv", result)
+  writetable("Bench/euler$(num).csv", result)
 end
