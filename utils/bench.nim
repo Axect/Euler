@@ -1,4 +1,4 @@
-import os, times, osproc, strutils, strformat
+import os, times, osproc, strutils, strformat, algorithm
 import csvtools
 
 type BenchMark = object
@@ -38,7 +38,11 @@ proc main =
   let nim_bench = BenchMark(lang: "Nim", time: nim_time)
   let haskell_bench = BenchMark(lang: "Haskell", time: haskell_time)
 
-  let bench_result: seq[BenchMark] = @[rust_bench, nim_bench, haskell_bench]
+  var bench_result: seq[BenchMark] = @[rust_bench, nim_bench, haskell_bench]
+  bench_result.sort do (x, y: BenchMark) -> int:
+    result = cmp(x.time, y.time)
+    if result == 0:
+      result = cmp(x.lang, y.lang)
 
   echo &"Rust:    {rust_time}s"
   echo &"Nim:     {nim_time}s"
