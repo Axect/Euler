@@ -1,4 +1,4 @@
-import sequtils, math, future
+import math
 
 proc fib(l: int): int =
   var a = (x:1,y:1)

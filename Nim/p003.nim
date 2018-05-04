@@ -20,7 +20,7 @@ proc primeFactors*(n: int64): seq[int64] =
         p += 1
   return fac
 
-proc main() =
+proc main =
   echo primeFactors(600851475143).max
 
 if isMainModule:
