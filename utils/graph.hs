@@ -24,10 +24,10 @@ type Data = [Points]
 mining = do
   scanDir <- listDirectory "Bench/"
   proto0  <- mapM readFile $ map ("Bench/" ++) (sort scanDir)
-  let proto1 = map (splitOn "\n") proto0
-      proto2 = map (filter (/= "")) proto1
-      proto3 = map (sort . (drop 1)) proto2
-  print $ map (map (tuplify . (splitOn ","))) proto3
+  let proto1 = map ((filter (/= "")) . (splitOn "\n")) proto0
+      proto2 = map (sort . (drop 1)) proto1
+      proto3 = map (map (readDouble . (!! 1) . (splitOn ","))) proto2
+  print $ proto3
 
-tuplify :: [a] -> (a, a)
-tuplify [x, y] = (x, y)
+readDouble :: String -> Double
+readDouble str = read str :: Double
