@@ -7,4 +7,4 @@ else
   num="$1"
 fi
 
-hyperfine -w 1 --export-markdown ./Bench/euler${num}.md --export-csv ./Bench/toPlot/euler${num}.csv "./Rust/bin/Euler$1" "./Nim/bin/p${num}" "./Haskell/bin/$1"
+hyperfine -w 1 --export-markdown ./Bench/euler${num}.md --export-csv ./Bench/data/euler${num}.csv "./Rust/bin/Euler$1" "./Nim/bin/p${num}" "./Haskell/bin/$1"

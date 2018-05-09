@@ -1,8 +1,6 @@
-import os, times, osproc, strutils, strformat, algorithm, sequtils
-import csvtools
+import os, osproc, strutils, strformat, sequtils
 
 let num = parseInt(paramStr(1))
-#let repeat = parseInt(paramStr(2))
 
 let rust = &"./Rust/bin/Euler{num}"
 let haskell = &"./Haskell/bin/{num}"
