@@ -2,7 +2,7 @@ import Data.List.Split
 
 main :: IO ()
 main = do
-  dat <- readFile "../Data/11.txt"
+  dat <- readFile "Data/11.txt"
   let strArray = map (splitOn " ") $ filter (/= "") $ splitOn "\n" dat
       matArray = map (map read) strArray :: [[Integer]]
   print $ maximum
