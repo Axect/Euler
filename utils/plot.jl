@@ -1,6 +1,6 @@
 using Plots; gr()
 
-n = 8
+n = 9
 
 haskell = readcsv("Bench/toPlot/haskell.csv")
 nim = readcsv("Bench/toPlot/nim.csv")
