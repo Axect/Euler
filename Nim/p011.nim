@@ -49,8 +49,9 @@ proc completeSwap(mat: Matrix): Matrix =
 proc dProduct(mat: Matrix): int =
   var temp = hProd(diag(mat))
   var largest = temp
+  var temp_mat = mat
   for i in 0..mat.high:
-    let temp_mat = permut(mat)
+    temp_mat = permut(temp_mat)
     temp = hProd(diag(temp_mat))
     if largest < temp:
       largest = temp
@@ -61,7 +62,7 @@ proc main =
   let strdata = temp.split({'\n'}).filter(x => x != "").map(x => x.split({' '}))
   let data = strdata.map(x => x.map(y => parseInt(y)))
   echo @[hProduct(data), vProduct(data), dProduct(data), dProduct(completeSwap(data))]
-  echo hProd(@[1,2,5,26,63,78,14,3,7,6])
+  #echo hProd(@[1,2,5,26,63,78,14,3,7,6])
 
 if isMainModule:
   main()
