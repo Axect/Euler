@@ -1,8 +1,0 @@
-pub fn main() {
-    println!("Hello, world!");
-}
-
-fn int_to_array(n: u64) -> Vec<u64> {
-    n.to_string().chars().map(|t| t.to_digit(10u32).unwrap() as u64).collect::<Row>().collect::<Vec<u64>>() 
-}
-
