@@ -6,7 +6,7 @@ main = do
   let strArray = map (splitOn " ") (filter (/= "") $ splitOn "\n" r)
       numArray = map (map read) strArray :: [[Integer]]
       revArray = reverse numArray
-  print $ reduceTotal (revArray)
+  print $ reduceTotal revArray
 
 reduce :: [Integer] -> [Integer]
 reduce (_:[]) = []
