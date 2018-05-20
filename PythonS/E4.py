@@ -1,15 +1,15 @@
 def main():
-    palindromes = [] # 대칭수 모음
-    for i in range(100,1000): # 세자리 수
-        for j in range(i,1000): # 세자리 수
-            n = str(i * j) # 문자열로 봐야해서 string으로 바꿔줌
-            for k in range(len(n)): # 대칭수 확인
+    palindromes = [] 
+    for i in range(100,1000): 
+        for j in range(i,1000): 
+            n = str(i * j) 
+            for k in range(len(n)): 
                 if n[k] != n[-(k+1)]:
-                    break # 대칭수가 아니다
-            else: # 대칭수
+                    break 
+            else: 
                 palindromes.append(i * j)
 
-    print(max(palindromes)) # 커지는순대로, 최대값
+    print(max(palindromes)) 
 
 
 if __name__ == '__main__':
