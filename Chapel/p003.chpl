@@ -1,8 +1,7 @@
 use Math;
 
 proc main() {
-    writeln(isPrime(12));
-    writeln(primes(100));
+    writeln(max reduce primeFactors(600851475143));
 }
 
 proc isPrime(n: int): bool {
@@ -24,4 +23,20 @@ iter primes(val: int) {
             yield x;
         }
     }
+}
+
+iter primeFactors(val: int) {
+    var (quot, rem) = (val, 0);
+    var p: int = 2;
+    while quot >= p {
+        if quot % p == 0 {
+            yield p;
+            quot /= p;
+        } else {
+            p += 1;
+            while !isPrime(p) {
+                p += 1;
+            }
+        }
+    } 
 }
