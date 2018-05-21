@@ -1,9 +1,5 @@
 proc main() {
-    var s = 0;
-    for i in evenFib(4000000) {
-        s += i;
-    }
-    writeln(s);
+    writeln(+ reduce evenFib(4000000));
 }
 
 iter evenFib(val: uint) {
