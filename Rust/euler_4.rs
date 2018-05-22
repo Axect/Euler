@@ -1,7 +1,7 @@
 fn main() {
     let mut maximum = 0;
     for i in 100..1000 {
-        for j in 100..1000 {
+        for j in i..1000 {
             let temp = i * j;
             if is_palindrome(temp) && (temp > maximum) {
                 maximum = temp;

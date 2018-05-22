@@ -10,7 +10,7 @@ proc isPalindrome(n: int): bool =
 proc main =
   var largest = 0
   for i in 100..999:
-    for j in 100..999:
+    for j in i..999:
       if isPalindrome(i*j) and i*j > largest:
         largest = i*j
 
