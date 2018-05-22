@@ -1,27 +1,12 @@
-module Prime where
-
--- import Data.Numbers.Primes (Very Fast Prime Module)
-
-main :: IO ()
 main = do
-  let s = 600851475143
-  print $ primeFactors'' s
+  print $ primeFactors 600851475143
 
--- Source Code of Data.Numbers.Primes
-primes' = 2 : [ x | x <- [3 ..], isPrime' x ]
-isPrime' x = all (\p -> x `rem` p > 0) (factorsToTry x)
-  where factorsToTry x = takeWhile (\p -> p * p <= x) primes'
+primes = 2 : filter isPrime [3 ..]
+isPrime n = all (\p -> n `mod` p > 0) (takeWhile (\p -> p * p <= n) primes)
 
-primeFactors' n =
-  filter (\p -> mod n p == 0) (takeWhile (\p -> 2 * p <= n) primes')
-
--- Accelerate! (if m become smaller than p^2 then stop iteration!)
-factors :: Integral a => a -> [a] -> [a]
-factors 1 _ = []
-factors m (p:ps) | m < p * p = [m]
-                 | r == 0    = p : factors q (p : ps)
-                 | otherwise = factors m ps
-  where (q, r) = quotRem m p
-
--- More Fast primeFactors
-primeFactors'' n = factors n (takeWhile (\p -> p * p <= n) primes')
+primeFactors :: Integer -> [Integer]
+primeFactors n = primeFactors' n primes
+ where
+  primeFactors' n xs@(p:ps) | n < p          = []
+                            | n `mod` p == 0 = p : primeFactors' (n `div` p) xs
+                            | otherwise      = primeFactors' n ps

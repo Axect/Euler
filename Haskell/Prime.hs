@@ -1,7 +1,6 @@
-main = do
-  print $ primeFactors 600851475143
+module Prime (primes, isPrime, primeFactors) where
 
-primes = 2 : (filter isPrime [3 ..])
+primes = 2 : filter isPrime [3 ..]
 isPrime n = all (\p -> n `mod` p > 0) (takeWhile (\p -> p * p <= n) primes)
 
 primeFactors :: Integer -> [Integer]
