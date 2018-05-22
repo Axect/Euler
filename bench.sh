@@ -7,14 +7,14 @@ else
   num="$1"
 fi
 
-hyperfine -w 1 --export-markdown ./Bench/euler${num}.md --export-csv ./Bench/data/euler${num}.csv "./Rust/bin/Euler$1" "./Nim/bin/p${num}" "./Haskell/bin/$1" "python PythonS/E$1.py"
+hyperfine -w 1 --export-markdown ./Bench/euler${num}.md --export-csv ./Bench/data/euler${num}.csv "./Rust/bin/euler_$1" "./Nim/bin/p${num}" "./Haskell/bin/$1"
 
 echo "Benchmark complete!"
 
-#./utils/benchCSV
+./utils/benchCSV
 
 echo "Export data complete!"
 
-#julia utils/plot.jl
+julia utils/plot.jl
 
 echo "Plot complete!"

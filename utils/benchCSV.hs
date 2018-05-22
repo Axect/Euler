@@ -19,8 +19,8 @@ type Data = (Points, Points, Points)
 mining :: IO Data
 mining = do
   scanDir <- listDirectory "Bench/data/"
-  proto0  <- mapM readFile $ map ("Bench/data/" ++) (sort scanDir)
-  let proto1  = map ((filter (/= "")) . (splitOn "\n")) proto0
+  proto0  <- mapM (readFile . ("Bench/data/" ++)) (sort scanDir)
+  let proto1  = map (filter (/= "") . (splitOn "\n")) proto0
       proto2  = map (sort . (drop 1)) proto1
       proto3  = map (map (readDouble . (!! 1) . (splitOn ","))) proto2
       haskell = zip [1.0 ..] (map (!! 0) proto3)

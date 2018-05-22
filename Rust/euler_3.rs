@@ -2,7 +2,7 @@
 
 fn main() {
     let n: u64 = 600851475143;
-    println!("{:?}", prime_factors(n));
+    println!("{}", prime_factors(n).into_iter().fold(0, |x, y| x.max(y)));
 }
 
 struct Prime {
@@ -28,8 +28,16 @@ fn is_prime(x: u64) -> bool {
 }
 
 fn prime_factors(n: u64) -> Vec<u64> {
-    Prime { num: 1 }
-        .take_while(|&p| p * p <= n)
-        .filter(|&p| n % p == 0)
-        .collect::<Vec<u64>>()
+    let mut result: Vec<u64> = vec![];
+    let mut q = n;
+    let mut p = Prime { num: 2 };
+    while q >= p.num {
+        if q % p.num == 0 {
+            result.push(p.num);
+            q /= p.num;
+        } else {
+            p.next();
+        }
+    }
+    result
 }
