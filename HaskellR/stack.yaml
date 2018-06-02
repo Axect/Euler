@@ -40,7 +40,8 @@ packages:
 # (e.g., acme-missiles-0.3)
 extra-deps:
   - git: https://github.com/Axect/HNumeric.git
-    commit: b6ccba03fbe727f7a2df0b4545930b77237ed204
+    commit: 2deaf87928b983c0916fe883e466ea0b64c26c1a
+  - normaldistribution-1.1.0.3
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
