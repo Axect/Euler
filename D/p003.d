@@ -1,10 +1,9 @@
-import std.stdio : writeln;
-import std.math;
-import std.range : take;
-
 void main() {
-  Prime p;
-  p.take(10).writeln;
+  import std.stdio : writeln;
+  import std.algorithm.comparison : max, min;
+  import std.algorithm.iteration : reduce;
+
+  primeFactors(600851475143).reduce!(max).writeln;
 }
 
 struct Prime {
@@ -25,6 +24,9 @@ struct Prime {
 }
 
 pure bool isPrime(long n) {
+  import std.math;
+  import std.range : take;
+
   long maxRange = cast(long)(sqrt(cast(double)n));
   foreach(e; 2 .. maxRange + 1) {
     if (n % e == 0) {
@@ -34,7 +36,17 @@ pure bool isPrime(long n) {
   return true;
 }
 
-// pure long[] primeFactors(n: long) {
-//   long[] result = 
-//   long q = n.dup;
-// }
+long[] primeFactors(long n) {
+  long[] result;
+  long q = n;
+  Prime prime;
+  while (q >= prime.p) {
+    if (q % prime.p == 0) {
+      result ~= prime.p;
+      q /= prime.p;
+    } else {
+      prime.popFront();
+    }
+  }
+  return result;
+}
