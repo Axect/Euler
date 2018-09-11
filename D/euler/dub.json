@@ -1,0 +1,12 @@
+{
+	"name": "euler",
+	"authors": [
+		"Tae Geun Kim"
+	],
+	"dependencies": {
+		"dnumeric": "~>0.5.1"
+	},
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2018, Tae Geun Kim",
+	"license": "proprietary"
+}

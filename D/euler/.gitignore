@@ -1,0 +1,14 @@
+.dub
+docs.json
+__dummy.html
+docs/
+euler.so
+euler.dylib
+euler.dll
+euler.a
+euler.lib
+euler-test-*
+*.exe
+*.o
+*.obj
+*.lst
