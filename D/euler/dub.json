@@ -4,7 +4,7 @@
 		"Tae Geun Kim"
 	],
 	"dependencies": {
-		"dnumeric": "~>0.5.1"
+		"dnumeric": "~>0.5.2"
 	},
 	"description": "A minimal D application.",
 	"copyright": "Copyright © 2018, Tae Geun Kim",
