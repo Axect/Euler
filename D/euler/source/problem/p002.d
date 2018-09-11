@@ -1,9 +1,5 @@
 module problem.p002;
 
-import dnum.tensor;
-import dnum.utils;
-import dnum.stats;
-
 int p002() {
   auto fib = Fib(1, 2);
   int s = 0;
