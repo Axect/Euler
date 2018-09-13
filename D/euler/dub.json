@@ -8,5 +8,5 @@
 	},
 	"description": "A minimal D application.",
 	"copyright": "Copyright © 2018, Tae Geun Kim",
-	"license": "proprietary"
+	"license": "BSD 3-clause"
 }
