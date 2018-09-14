@@ -8,8 +8,7 @@ int p001() {
     Pipe p;
     p.input(seq(1,999));
     p.proc(
-        filter(x => (x%3 == 0 || x%5 == 0)),
-        sum
+        filter(x => (x%3 == 0 || x%5 == 0))
     );
-    return p.output[0];
+    return p.reduce((x,y) => x + y);
 }

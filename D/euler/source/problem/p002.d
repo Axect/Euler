@@ -8,10 +8,9 @@ int p002() {
     Pipe p;
     p.input(fib(400_0000));
     p.proc(
-        filter(x => x%2 == 0),
-        sum
+        filter(x => x%2 == 0)
     );
-    return p.output[0];
+    return p.reduce((x,y) => x + y);
 }
 
 int[] fib(int max) {
