@@ -15,6 +15,6 @@ echo "Benchmark complete!"
 
 echo "Export data complete!"
 
-julia utils/plot.jl
+# julia utils/plot.jl
 
-echo "Plot complete!"
+# echo "Plot complete!"
