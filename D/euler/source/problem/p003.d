@@ -3,55 +3,44 @@ module problem.p003;
 import fptools.fp;
 
 long[] p003() {
-    auto p = Prime(600851475143);
-    return p.factors;
+    return primeFactors(600851475143);
 }
 
 struct Prime {
-    import std.math : sqrt;
+    long num = 2;
 
-    long num;
-    long[] primes;
+    enum empty = false;
 
-    this(long n) {
-        mixin FP!long;
-        auto max = cast(long)sqrt(cast(double)n);
-
-        Pipe p;
-        p.input([2L] ~ seq(3, max, 2));
-        p.proc(
-            filter(x => isPrime(x))
-        );
-        this.num = n;
-        this.primes = p.output;
+    long front() const @property {
+        return num;
     }
 
-    long[] factors() {
-        long[] result;
-        long q = this.num;
-
-        ulong i = 0;
-
-        while (q >= this.primes[i]) {
-            if (q % this.primes[i] == 0) {
-                result ~= this.primes[i];
-                q /= this.primes[i];
-            } else {
-                i++;
-            }
+    void popFront() {
+        num += 1;
+        while (!isPrime(num)) {
+            num += 1;
         }
-        return result;
     }
 }
 
 bool isPrime(long n) {
     import std.math : sqrt;
 
-    mixin FP!long;
-
     long max = cast(long)(sqrt(cast(double)n));
 
-    Pipe p;
-    p.input([2L] ~ seq(3, max, 2));
-    return p.all(x => n % x == 0);
+    int i = 2;
+    while(i <= max) {
+        if (n % i == 0) {
+            return false;
+        }
+        i++;
+    }
+    return true;
 }
+
+//TODO - Range to pipe
+long[] primeFactors(long n) {
+    
+}
+
+long[] takeWhile(bool delegate(long) p)
