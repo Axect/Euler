@@ -1,0 +1,1 @@
+/home/kavis/Documents/Programming/Rust/Euler/target/debug/Euler: /home/kavis/Documents/Programming/Rust/Euler/src/main.rs /home/kavis/Documents/Programming/Rust/Euler/src/problems/mod.rs /home/kavis/Documents/Programming/Rust/Euler/src/problems/p001.rs
