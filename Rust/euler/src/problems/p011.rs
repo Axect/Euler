@@ -1,95 +1,61 @@
-use std::fmt;
 use std::cmp::max;
 
 pub fn ans() {
-    let mut a = Eleven::new(vec![vec![1,2,3], vec![3,4,3], vec![3,2,3]]);
-    println!("{}", a.max_horizontal());
+    let x = vec![1,3,4,6,2,7,8,1,5,9,8,2,5];
+    println!("Hello, World!");
+    println!("{}", x.h_product());
+    let y = vec![x, vec![1,2,3,4,5,6,7,8]];
+    println!("{}", y.h_product());
 }
 
-#[derive(Debug, Clone)]
-pub struct Eleven {
-    i: usize,
-    j: usize,
-    data: Vec<Vec<u64>>,
-    prod: u64,
+type List = Vec<u64>;
+type Matrix = Vec<List>;
+
+trait Product {
+    type Output;
+    fn h_product(&self) -> Self::Output;
 }
 
-impl fmt::Display for Eleven {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        writeln!(f, "Position: {}, {}\nProduct: {}", self.i, self.j, self.prod)
-    }
-}
-
-impl Eleven {
-    fn new(v: Vec<Vec<u64>>) -> Eleven {
-        Eleven {
-            i: 0,
-            j: 0,
-            data: v.clone(),
-            prod: v[0][0],
-        }
-    }
-
-    fn move_right(&mut self) {
-        self.j += 1;
-        self.prod *= self.data[self.i][self.j];
-    }
-
-    fn move_down(&mut self) {
-        self.i += 1;
-        self.prod *= self.data[self.i][self.j];
-    }
-
-    fn move_diag(&mut self) {
-        self.i += 1;
-        self.j += 1;
-        self.prod *= self.data[self.i][self.j];
-    }
-
-    fn next_row(&mut self) {
-        self.i += 1;
-        self.j = 0;
-        self.prod = self.data[self.i][self.j];
-    }
-
-    fn next_col(&mut self) {
-        self.i = 0;
-        self.j += 1;
-        self.prod = self.data[self.i][self.j];
-    }
-
-    fn reset_prod(&mut self) {
-        self.prod = self.data[self.i][self.j];
-    }
-
-    fn next_diag(&mut self, n: usize) {
-        self.i = 0;
-        self.j = n;
-        self.prod = self.data[self.i][self.j];
-    }
-
-    fn max_horizontal(&self) -> u64 {
-        let l = self.data.len() as usize;
-        let mut m = self.clone();
-        let mut p = 1;
-        while m.i < (l - 1) {
-            while m.j < (l - 1) {
-                m.move_right();
-            }
-            if m.j == (l - 1) {
-                if p <= m.prod {
-                    p = m.prod;
-                }
-                m.next_row();
-            }
-        }
-        if m.i == (l - 1) {
-            while m.j < (l-1) {
-                m.move_right();
-            }
-        }
-        return max(m.prod, p);
+impl Product for List {
+    type Output = u64;
+    fn h_product(&self) -> Self::Output {
+        let l = self.len();
+        (0 .. l-3).map(|x| self.into_iter().skip(x).take(4).fold(
+            1,
+            |x,y| x * y,
+        )).fold(
+            0,
+            |x,y| max(x,y),
+        )
     }
 }
 
+trait ArrayProduct {
+    type Output;
+    fn h_product(&self) -> Self::Output;
+    // fn v_product(&self) -> Self::Output;
+    // fn d_product(&self) -> Self::Output;
+    // fn r_product(&self) -> Self::Output;
+    fn transpose(&self) -> Matrix;
+    // fn diag(&self) -> List;
+    // fn cyclic(&self) -> Matrix;
+    // fn cyclics(&self) -> Vec<Matrix>;
+}
+
+impl ArrayProduct for Matrix {
+    type Output = u64;
+    fn h_product(&self) -> Self::Output {
+        self.into_iter().map(|x| x.h_product()).fold(
+            0,
+            |x,y| max(x,y),
+        )
+    }
+
+    fn transpose(&self) -> Matrix {
+        let l = self.len();
+        (0 .. l).map(
+            |x| self.into_iter().
+        )
+    }
+}
 
