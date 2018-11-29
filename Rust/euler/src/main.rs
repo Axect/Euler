@@ -10,6 +10,6 @@ fn main() {
     // println!("{}", problems::p007_ans());
     // println!("{}", problems::p008_ans());
     // println!("{}", problems::p009_ans());
-    // println!("{}", problems::p010_ans());
-    problems::p011_ans();
+    println!("{}", problems::p010_ans());
+    //roblems::p011_ans();
 }
