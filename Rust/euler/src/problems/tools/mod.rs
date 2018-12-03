@@ -1,2 +1,2 @@
 mod prime;
-pub use self::prime::Prime;
+pub use self::prime::*;

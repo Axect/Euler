@@ -8,52 +8,57 @@ pub mod p007;
 pub mod p008;
 pub mod p009;
 pub mod p010;
-//pub mod p011;
+pub mod p011;
+pub mod p012;
 pub mod tools;
 
 // =============================================================================
 // Public Function Declare
 // =============================================================================
-pub fn p001_ans() -> u64 {
-    p001::ans()
+pub fn p001_ans() {
+    println!("{}", p001::ans());
 }
 
-pub fn p002_ans() -> u64 {
-    p002::ans()
+pub fn p002_ans() {
+    println!("{}", p002::ans());
 }
 
-pub fn p003_ans() -> u64 {
-    p003::ans()
+pub fn p003_ans() {
+    println!("{}", p003::ans());
 }
 
-pub fn p004_ans() -> u64 {
-    p004::ans()
+pub fn p004_ans() {
+    println!("{}", p004::ans());
 }
 
-pub fn p005_ans() -> u64 {
-    p005::ans()
+pub fn p005_ans() {
+    println!("{}", p005::ans());
 }
 
-pub fn p006_ans() -> u64 {
-    p006::ans()
+pub fn p006_ans() {
+    println!("{}", p006::ans());
 }
 
-pub fn p007_ans() -> u64 {
-    p007::ans()
+pub fn p007_ans() {
+    println!("{}", p007::ans());
 }
 
-pub fn p008_ans() -> u64 {
-    p008::ans()
+pub fn p008_ans() {
+    println!("{}", p008::ans());
 }
 
-pub fn p009_ans() -> u64 {
-    p009::ans()
+pub fn p009_ans() {
+    println!("{}", p009::ans());
 }
 
-pub fn p010_ans() -> u64 {
-    p010::ans()
+pub fn p010_ans() {
+    println!("{}", p010::ans());
 }
 
-//pub fn p011_ans() {
-//    p011::ans()
-//}
+pub fn p011_ans() {
+    p011::ans()
+}
+
+pub fn p012_ans() {
+    p012::ans()
+}

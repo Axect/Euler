@@ -2,7 +2,7 @@ extern crate peroxide;
 use peroxide::*;
 use std::process::exit;
 
-fn main() {
+pub fn ans() {
     let b = Matrix::read("data/p011.csv", false, ' ');
     let c = match b {
         Ok(m) => m,
