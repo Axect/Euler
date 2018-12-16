@@ -5,6 +5,7 @@ pub fn ans() -> u64 {
         .max().unwrap()
 }
 
+#[allow(dead_code)]
 pub enum Digit {
     Two(u64, u64),
     Three(u64, u64),
@@ -14,6 +15,7 @@ pub struct Palindrome {
     digit: Digit,
 }
 
+#[allow(unused_assignments)]
 impl Iterator for Palindrome {
     type Item = u64;
     fn next(&mut self) -> Option<Self::Item> {

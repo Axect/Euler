@@ -1,4 +1,6 @@
+#![feature(exclusive_range_pattern)]
 mod problems;
+
 
 use std::env;
 
@@ -19,6 +21,7 @@ fn main() {
         10 => problems::p010_ans(),
         11 => problems::p011_ans(),
         12 => problems::p012_ans(),
+        13 => problems::p013_ans(),
         _ => (),
     }
 }

@@ -10,6 +10,7 @@ pub struct Triplet {
     constrain: u64,
 }
 
+#[allow(unused_assignments)]
 impl Iterator for Triplet {
     type Item = u64;
     fn next(&mut self) -> Option<Self::Item> {

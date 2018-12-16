@@ -34,6 +34,7 @@ pub fn is_prime(n: u64) -> bool {
     true
 }
 
+#[allow(dead_code)]
 pub fn prime_factors(n: u64) -> Vec<u64> {
     let range: u64 = (n as f64).sqrt() as u64;
     Prime { num : 1}
