@@ -5,4 +5,4 @@ authors = ["Axect <edeftg@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-peroxide = "0.6"
+peroxide = "0.9"
