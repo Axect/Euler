@@ -6,3 +6,4 @@ edition = "2018"
 
 [dependencies]
 peroxide = "0.9"
+ramp = "0.5"
