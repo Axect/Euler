@@ -14,7 +14,10 @@ pub fn ans() {
     let mut count_sunday = 0usize;
     loop {
         date.next();
-        println!("{:?}-{:?}-{:?}-{:?}", date.year, date.month, date.day, date.num);
+        println!(
+            "{:?}-{:?}-{:?}-{:?}",
+            date.year, date.month, date.day, date.num
+        );
         match (date.year, date.month, date.day, date.num) {
             (_, _, Sunday, 1) => count_sunday += 1,
             (2000, December, _, 31) => break,
@@ -39,7 +42,7 @@ enum Day {
     Thursday,
     Friday,
     Saturday,
-    Sunday
+    Sunday,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -55,25 +58,23 @@ enum Month {
     September,
     October,
     November,
-    December
+    December,
 }
 
 impl Iterator for Date {
     type Item = Day;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let (curr_year, curr_month, curr_day, curr_num) = 
+        let (curr_year, curr_month, curr_day, curr_num) =
             (self.year, self.month, self.day, self.num);
         let capacity: usize = match curr_month {
             February => {
-                {
-                    if is_leap(curr_year) {
-                        29
-                    } else {
-                        28
-                    }
+                if is_leap(curr_year) {
+                    29
+                } else {
+                    28
                 }
-            },
+            }
             September => 30,
             April => 30,
             June => 30,
@@ -98,7 +99,7 @@ impl Iterator for Date {
 }
 
 fn is_leap(year: usize) -> bool {
-    match (year%4, year%100, year%400) {
+    match (year % 4, year % 100, year % 400) {
         (x, _, _) if x > 0 => false,
         (_, y, _) if y > 0 => true,
         (_, _, z) if z > 0 => false,
@@ -120,7 +121,7 @@ fn next_month(month: Month) -> Month {
         October => November,
         November => December,
         December => January,
-        _ => unreachable!()
+        _ => unreachable!(),
     }
 }
 
@@ -133,6 +134,6 @@ fn next_day(day: Day) -> Day {
         Friday => Saturday,
         Saturday => Sunday,
         Sunday => Monday,
-        _ => unreachable!()
+        _ => unreachable!(),
     }
 }
