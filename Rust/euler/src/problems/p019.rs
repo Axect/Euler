@@ -4,10 +4,13 @@ use self::Month::*;
 pub fn ans() {
     let mut date = Date {
         year: 1900,
-        month: December,
-        day: Sunday,
-        num: 31,
+        month: January,
+        day: Monday,
+        num: 1,
     };
+    while date.year == 1900 {
+        date.next();
+    }
     let mut count_sunday = 0usize;
     loop {
         date.next();
