@@ -121,7 +121,6 @@ fn next_month(month: Month) -> Month {
         October => November,
         November => December,
         December => January,
-        _ => unreachable!(),
     }
 }
 
@@ -134,6 +133,5 @@ fn next_day(day: Day) -> Day {
         Friday => Saturday,
         Saturday => Sunday,
         Sunday => Monday,
-        _ => unreachable!(),
     }
 }

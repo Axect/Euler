@@ -29,6 +29,7 @@ fn main() {
         18 => problems::p018_ans(),
         19 => problems::p019_ans(),
         20 => problems::p020_ans(),
+        21 => problems::p021_ans(),
         _ => (),
     }
 }

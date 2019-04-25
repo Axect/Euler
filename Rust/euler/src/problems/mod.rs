@@ -18,6 +18,7 @@ pub mod p017;
 pub mod p018;
 pub mod p019;
 pub mod p020;
+pub mod p021;
 pub mod tools;
 
 // =============================================================================
@@ -101,4 +102,8 @@ pub fn p019_ans() {
 
 pub fn p020_ans() {
     p020::ans()
+}
+
+pub fn p021_ans() {
+    p021::ans()
 }
