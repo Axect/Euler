@@ -3,23 +3,8 @@ const warn = std.debug.warn;
 const sqrt = std.math.sqrt;
 
 pub fn main() void {
-    var p = primeFactors(600851475143);
-    warn("result: {}\n", p[p.len - 1]);
+    warn("{}\n", maxPrimeFactor(600851475143));
 }
-
-const Prime = struct {
-    num: u32,
-
-    pub fn next(self: Prime) Prime {
-        var n = self.num + 1;
-        while (!isPrime(u32, n)) {
-            n += 1;
-        }
-        return Prime {
-            .num = n,
-        };
-    }
-};
 
 fn isPrime(comptime T: type, n: T) bool {
     const range: u32 = @floatToInt(u32, sqrt(@intToFloat(f64, n)));
@@ -41,17 +26,15 @@ fn isPrime(comptime T: type, n: T) bool {
     return true;
 }
 
-fn primeFactors(n: u64) []u32 {
+fn maxPrimeFactor(n: u64) u32 {
     const range: u32 = @floatToInt(u32, sqrt(@intToFloat(f64, n)));
-    var array: [100]u32 = undefined;
-    var p = Prime { .num = 2 };
-    var i: u32 = 0;
-    while (p.num <= range) {
-        if (n % p.num == 0) {
-            array[i] = p.num;
-            i += 1;
+    var p: u32 = 2;
+    var result: u32 = undefined;
+    while (p <= range) {
+        if (n % p == 0 and isPrime(u32, p)) {
+            result = p;
         }
-        p = p.next();
+        p += 1;
     }
-    return array[0 .. i];
+    return result;
 }
