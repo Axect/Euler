@@ -10,7 +10,7 @@ pub fn main() void {
             if (f.curr % 2 == 0) {
                 c += f.curr;
             }
-            f.iter();
+            f = f.next_fib();
         }
         break :blk c;
     };
@@ -28,10 +28,12 @@ const Fib = struct {
         };
     }
 
-    pub fn iter(self: Fib) void {
-        const c = self.curr;
-        const n = self.next;
-        self.curr = n; // compile error <- Can't change member
-        self.next = c + n;
+    fn next_fib(self: Fib) Fib {
+        return Fib {
+            .curr = self.next,
+            .next = self.curr + self.next,
+        };
     }
 };
+
+
