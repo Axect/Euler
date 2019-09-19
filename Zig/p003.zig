@@ -28,13 +28,13 @@ fn isPrime(comptime T: type, n: T) bool {
 
 fn maxPrimeFactor(n: u64) u32 {
     const range: u32 = @floatToInt(u32, sqrt(@intToFloat(f64, n)));
-    var p: u32 = 2;
+    var p: u32 = 3;
     var result: u32 = undefined;
     while (p <= range) {
         if (n % p == 0 and isPrime(u32, p)) {
             result = p;
         }
-        p += 1;
+        p += 2;
     }
     return result;
 }
