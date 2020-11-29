@@ -1,5 +1,4 @@
-extern crate peroxide;
-use peroxide::*;
+use peroxide::fuga::*;
 
 #[allow(dead_code)]
 pub fn ans() {

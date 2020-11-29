@@ -46,10 +46,11 @@ impl Iterator for Palindrome {
 
 pub fn is_palindrome(n: u64) -> bool {
     let s: String = n.to_string();
-    for (i1, i2) in s.chars().zip(s.chars().rev()) {
-        if i1 != i2 {
-            return false;
-        }
-    }
-    return true;
+    //for (i1, i2) in s.chars().zip(s.chars().rev()) {
+    //    if i1 != i2 {
+    //        return false;
+    //    }
+    //}
+    //return true;
+    s.chars().zip(s.chars().rev()).all(|(x, y)| x == y)
 }

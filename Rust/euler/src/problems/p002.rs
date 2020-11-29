@@ -1,3 +1,5 @@
+use std::mem::swap;
+
 pub fn ans() -> u64 {
     Fib { curr: 1, next: 2}
         .take_while(|&x| x <= 4_000_000)
@@ -13,10 +15,8 @@ struct Fib {
 impl Iterator for Fib {
     type Item = u64;
     fn next(&mut self) -> Option<Self::Item> {
-        let new_next = self.curr + self.next;
-
-        self.curr = self.next;
-        self.next = new_next;
+        self.curr += self.next;
+        swap(&mut self.curr, &mut self.next);
 
         Some(self.curr)
     }

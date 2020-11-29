@@ -1,6 +1,9 @@
 #![feature(exclusive_range_pattern)]
 mod problems;
 
+#[macro_use]
+extern crate peroxide;
+
 use std::env;
 
 fn main() {

@@ -1,5 +1,4 @@
-extern crate peroxide;
-use peroxide::*;
+use peroxide::fuga::*;
 use std::process::exit;
 
 pub fn ans() {
@@ -18,7 +17,7 @@ trait Problem11Vector {
     fn product(&self) -> f64;
 }
 
-impl Problem11Vector for Vector {
+impl Problem11Vector for Vec<f64> {
     fn product(&self) -> f64 {
        let mut max = 1f64;
 

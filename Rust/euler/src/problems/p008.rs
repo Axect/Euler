@@ -10,10 +10,10 @@ pub fn ans() -> u64 {
         .chars()
         .map(|x| x.to_digit(10u32).unwrap() as u64)
         .collect::<Vec<u64>>();
-    greatest_product(results)
+    greatest_product(&results)
 }
 
-pub fn greatest_product(ns: Vec<u64>) -> u64 {
+pub fn greatest_product(ns: &[u64]) -> u64 {
     let mut gp: u64 = 0;
     for i in 0 .. (ns.len() - 12) {
         let mut prod: u64 = 1;
