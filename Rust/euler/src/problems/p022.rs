@@ -16,7 +16,7 @@ pub fn ans() {
         temp.retain(|c| c != '\"');
         let temp_score = (i + 1) * name_score(temp.clone());
         score += temp_score;
-        println!("{}-{}: {}/{}", i, temp, temp_score, score);
+        //println!("{}-{}: {}/{}", i, temp, temp_score, score);
     }
 
     println!("{}", score);

@@ -1,7 +1,6 @@
 #![feature(exclusive_range_pattern)]
 mod problems;
 
-
 use std::env;
 
 fn main() {

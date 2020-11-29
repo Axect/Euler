@@ -52,14 +52,14 @@ impl LargeRow for Row {
         for i in 0..self.len() {
             let val = a[i];
             match &val {
-                0..9 => (),
-                10..99 => {
+                0..=9 => (),
+                10..=99 => {
                     if i <= self.len() - 2 {
                         a[i + 1] += val / 10;
                         a[i] -= (val / 10) * 10;
                     }
                 }
-                100..900 => {
+                100..=900 => {
                     if i <= self.len() - 2 {
                         a[i + 1] += val / 10;
                         a[i] -= (val / 100) * 100 + ((val - (val / 100) * 100) / 10) * 10;

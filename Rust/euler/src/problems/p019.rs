@@ -14,10 +14,10 @@ pub fn ans() {
     let mut count_sunday = 0usize;
     loop {
         date.next();
-        println!(
-            "{:?}-{:?}-{:?}-{:?}",
-            date.year, date.month, date.day, date.num
-        );
+        //println!(
+        //    "{:?}-{:?}-{:?}-{:?}",
+        //    date.year, date.month, date.day, date.num
+        //);
         match (date.year, date.month, date.day, date.num) {
             (_, _, Sunday, 1) => count_sunday += 1,
             (2000, December, _, 31) => break,

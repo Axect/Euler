@@ -7,9 +7,9 @@ pub fn ans() {
 
 fn num_to_en(n: usize) -> String {
     match n {
-        0 ... 9 => NUM_LIST_1[n-1].to_string(),
-        10 ... 19 => NUM_LIST_2[n-10].to_string(),
-        20 ... 100 => {
+        0 ..= 9 => NUM_LIST_1[n-1].to_string(),
+        10 ..= 19 => NUM_LIST_2[n-10].to_string(),
+        20 ..= 100 => {
             {
                 let (q, r) = quot_rem(n, 10);
                 if r >= 1 {
@@ -19,7 +19,7 @@ fn num_to_en(n: usize) -> String {
                 }
             }
         },
-        101 ... 999 => {
+        101 ..= 999 => {
             {
                 let (q, r) = quot_rem(n, 100);
                 if r >= 1 {
