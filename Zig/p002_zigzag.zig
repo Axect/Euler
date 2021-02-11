@@ -1,5 +1,5 @@
 const std = @import("std");
-const warn = std.debug.warn;
+const print = std.debug.print;
 
 pub fn main() void {
     var f = Fib(u32).new(1, 2);
@@ -10,18 +10,18 @@ pub fn main() void {
         }
         f.next();
     }
-    warn("result: {}\n", s);
+    print("result: {}\n", .{s});
 }
 
 pub fn Fib(comptime T: type) type {
     return packed struct {
         const Self = @This();
 
-        pub n1: T,
-        pub n2: T,
+        n1: T,
+        n2: T,
 
         pub fn new(x: T, y: T) Self {
-            return Self {
+            return Self{
                 .n1 = x,
                 .n2 = y,
             };

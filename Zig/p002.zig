@@ -1,5 +1,5 @@
 const std = @import("std");
-const warn = std.debug.warn;
+const print = std.debug.print;
 
 pub fn main() void {
     var f: Fib = Fib.init(1, 2);
@@ -14,7 +14,7 @@ pub fn main() void {
         }
         break :blk c;
     };
-    warn("result: {}\n", s);
+    print("result: {}\n", .{s});
 }
 
 const Fib = struct {
@@ -22,14 +22,14 @@ const Fib = struct {
     next: u32,
 
     pub fn init(x1: u32, x2: u32) Fib {
-        return Fib {
+        return Fib{
             .curr = x1,
             .next = x2,
         };
     }
 
     fn next_fib(self: Fib) Fib {
-        return Fib {
+        return Fib{
             .curr = self.next,
             .next = self.curr + self.next,
         };

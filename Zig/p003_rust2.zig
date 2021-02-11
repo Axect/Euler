@@ -1,20 +1,20 @@
 const std = @import("std");
-const warn = std.debug.warn;
+const print = std.debug.print;
 const sqrt = std.math.sqrt;
 
 pub fn main() void {
     const p = primeFactors(600851475143);
-    warn("result: {}\n", p[p.len - 1]);
+    print("result: {}\n", .{p[p.len - 1]});
 }
 
 pub fn Prime(comptime T: type) type {
     return packed struct {
         const Self = @This();
 
-        pub num: T,
+        num: T,
 
         pub fn new(n: T) Self {
-            return Self {
+            return Self{
                 .num = n,
             };
         }
@@ -60,5 +60,5 @@ fn primeFactors(n: u64) []u32 {
         }
         p.next();
     }
-    return array[0 .. i];
+    return array[0..i];
 }

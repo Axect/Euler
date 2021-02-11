@@ -1,5 +1,5 @@
 const std = @import("std");
-const warn = std.debug.warn;
+const print = std.debug.print;
 
 pub fn main() void {
     var num: i32 = 1;
@@ -10,5 +10,5 @@ pub fn main() void {
         }
         num += 1;
     }
-    warn("result: {}\n", s);
+    print("result: {}\n", .{s});
 }

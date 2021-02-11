@@ -1,10 +1,10 @@
 const std = @import("std");
-const warn = std.debug.warn;
+const print = std.debug.print;
 const sqrt = std.math.sqrt;
 
 pub fn main() void {
     var p = primeFactors(600851475143);
-    warn("result: {}\n", p[p.len - 1]);
+    print("result: {}\n", .{p[p.len - 1]});
 }
 
 const Prime = struct {
@@ -15,7 +15,7 @@ const Prime = struct {
         while (!isPrime(u32, n)) {
             n += 1;
         }
-        return Prime {
+        return Prime{
             .num = n,
         };
     }
@@ -44,7 +44,7 @@ fn isPrime(comptime T: type, n: T) bool {
 fn primeFactors(n: u64) []u32 {
     const range: u32 = @floatToInt(u32, sqrt(@intToFloat(f64, n)));
     var array: [100]u32 = undefined;
-    var p = Prime { .num = 2 };
+    var p = Prime{ .num = 2 };
     var i: u32 = 0;
     while (p.num <= range) {
         if (n % p.num == 0) {
@@ -53,5 +53,5 @@ fn primeFactors(n: u64) []u32 {
         }
         p = p.next();
     }
-    return array[0 .. i];
+    return array[0..i];
 }

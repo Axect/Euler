@@ -1,9 +1,9 @@
 const std = @import("std");
-const warn = std.debug.warn;
+const print = std.debug.print;
 const sqrt = std.math.sqrt;
 
 pub fn main() void {
-    warn("{}\n", maxPrimeFactor(600851475143));
+    print("{}\n", .{maxPrimeFactor(600851475143)});
 }
 
 fn isPrime(comptime T: type, n: T) bool {
